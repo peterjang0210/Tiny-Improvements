@@ -1,0 +1,24 @@
+{
+  "name": "tiny-improvements",
+  "version": "1.0.0",
+  "description": "tiny improvements homework assignment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peterjang0210/Tiny-Improvements.git"
+  },
+  "author": "Peter Jang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peterjang0210/Tiny-Improvements/issues"
+  },
+  "homepage": "https://github.com/peterjang0210/Tiny-Improvements#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.15"
+  }
+}
