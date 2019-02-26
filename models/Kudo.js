@@ -6,18 +6,14 @@ const KudoSchema = new Schema({
         type: String,
         required: "message is required"
     },
-    sender: [
-        {
-            type: Schema.type.ObjectId,
-            ref: "User"
-        }
-    ],
-    receiver: [
-        {
-            type: Schema.type.ObjectId,
-            ref:"User"
-        }
-    ]
+    sender: {
+        type: Schema.type.ObjectId,
+        ref: "User"
+    },
+    receiver: {
+        type: Schema.type.ObjectId,
+        ref: "User"
+    }
 });
 
 const Kudo = mongoose.model("Kudo", KudoSchema);
