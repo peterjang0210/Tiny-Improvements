@@ -1,12 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Tiny Improvements</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-    
+    <main class="container">
+        <header>
+            <h1>Tiny Improvements</h1>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://localhost:3000/api/users">Users <i
+                            class="fas fa-address-book"></i></a>
+                </li>
+            </ul>
+        </header>
+        <hr>
+
+        <div class="row">
+            <div class="col-3">
+                <div class="kudoBtn">
+                    <div class="card">
+                        <div class="card-body">
+                            <button type="button" class="btn btn-info" id="showModal">Give Kudos!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="kudos">
+                    <!-- this is where kudos will be appended -->
+                    test
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Give a Kudo!</h2>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <select class="form-control">
+                            <option selected disabled>Select Sender</option>
+                            <!-- append user names on load -->
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <form>
+                            <div>
+                                <input type="text" class="form-control" id="messageTitle" placeholder="Type a title!">
+                            </div>
+                            <div>
+                                <textarea class="form-control" id="kudoBody" placeholder="Type a message!"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-3">
+                        <select class="form-control">
+                            <option selected disabled>Select Receiver</option>
+                            <!-- append user names on load -->
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info">Send Kudos!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="./js/app.js"></script>
 </body>
+
 </html>
