@@ -7,11 +7,11 @@ const KudoSchema = new Schema({
         required: "message is required"
     },
     sender: {
-        type: Schema.type.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "User"
     },
     receiver: {
-        type: Schema.type.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: "User"
     }
 });
