@@ -12,9 +12,22 @@ const postKudos = function() {
     const kudoTitle = $("#messageTitle").val().trim();
     const senderID = $("#sender").val();
     const receiverID = $("#receiver").val();
-    $.post("/api/kudos", {title: kudoTitle, message: kudoText, sender: senderID, receiver: receiverID}).then(function(data){
-        getKudos();
-    })
+    if(kudoText === null || kudoTitle === null || senderID === null || receiverID === null){
+        $(".alertDiv").empty();
+        $(".alertDiv").append(`<div class="alert alert-danger" role="alert">
+        Please complete all fields!</div>`)
+    } else {
+        $.post("/api/kudos", {title: kudoTitle, message: kudoText, sender: senderID, receiver: receiverID}).then(function(data){
+            $(".alertDiv").empty();
+            getKudos();
+            $("#kudoBody").val("");
+            $("#messageTitle").val("");
+            $("#sender").val("Select Sender");
+            $("#receiver").val("Select Receiver");
+            $(".modal").modal("hide");
+        });
+    }
+    
 }
 
 const getKudos = function() {
