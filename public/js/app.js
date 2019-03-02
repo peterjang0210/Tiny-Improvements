@@ -1,18 +1,19 @@
 const renderUsers = function (){
     $.get("/api/users").then(function(users){
         for(let i = 0; i < users.length; i++){
-            console.log("test");
-            $('#sender').append(`<option dataID=${users[i]._id}>${users[i].name}</option>`);
-            $('#receiver').append(`<option dataID=${users[i]._id}>${users[i].name}</option>`);
+            $('#sender').append(`<option value=${users[i]._id}>${users[i].name}</option>`);
+            $('#receiver').append(`<option value=${users[i]._id}>${users[i].name}</option>`);
         }
     });
 }
 
 const postKudos = function() {
     const kudoText = $("#kudoBody").val().trim();
-
-    $.post("/api/kudos", {message: kudoText}).then(function(data){
-        renderKudos();
+    const kudoTitle = $("#messageTitle").val().trim();
+    const senderID = $("#sender").val();
+    const receiverID = $("#receiver").val();
+    $.post("/api/kudos", {title: kudoTitle, message: kudoText, sender: senderID, receiver: receiverID}).then(function(data){
+        getKudos();
     })
 }
 
@@ -23,8 +24,17 @@ const getKudos = function() {
 }
 
 const renderKudos = function(kudos) {
+    $(".kudos").empty();
     for(let i = 0; i < kudos.length; i++){
-        $(".kudos").append(``);
+        $(".kudos").append(
+            `<div class="card">
+                <h2 class="card-title text-center">${kudos[i].title}</h2>
+                <div class="card-body">
+                    <h3 class="text-muted">From: ${kudos[i].sender.name}</h3>
+                    <p class="text-center">${kudos[i].message}</p>
+                    <h3 class="text-muted">To: ${kudos[i].receiver.name}</h3>
+                </div>
+            </div>`);
     }
 }
 

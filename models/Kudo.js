@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const KudoSchema = new Schema({
+    title:{
+        type: String,
+        required: "title is required"
+    },
     message: {
         type: String,
         required: "message is required"

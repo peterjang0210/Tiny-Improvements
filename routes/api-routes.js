@@ -15,7 +15,7 @@ module.exports = function (app){
     });
 
     app.get("/api/users", function(req, res){
-        User.find().then(function(users){
+        User.find().populate("sender").populate("receiver").then(function(users){
             res.json(users);
         }).catch(function(error){
             res.json({error:error});
