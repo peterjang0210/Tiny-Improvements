@@ -40,12 +40,13 @@ const renderKudos = function(kudos) {
     $(".kudos").empty();
     for(let i = 0; i < kudos.length; i++){
         $(".kudos").append(
-            `<div class="card">
+            `<div class="card kudo">
                 <h2 class="card-title text-center">${kudos[i].title}</h2>
                 <div class="card-body">
-                    <h3 class="text-muted">From: ${kudos[i].sender.name}</h3>
+                    <h3 class="text-muted receiver">To: ${kudos[i].receiver.name}</h3>
                     <p class="text-center">${kudos[i].message}</p>
-                    <h3 class="text-muted">To: ${kudos[i].receiver.name}</h3>
+                    <h3 class="text-muted sender">From: ${kudos[i].sender.name}</h3>
+                    
                 </div>
             </div>`);
     }
@@ -56,5 +57,6 @@ getKudos();
 
 $("#submitKudo").on("click", postKudos);
 $("#showModal").on('click', function(){
+    $(".alertDiv").empty();
     $(".modal").modal("show");
 });

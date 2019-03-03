@@ -38,4 +38,12 @@ module.exports = function (app){
             res.json({error:error});
         });
     });
+
+    app.delete("/api/kudos", function(req, res){
+        Kudo.deleteOne(req.body).then(function(kudos){
+            res.json(kudos)
+        }).catch(function(error){
+            res.json({error: error});
+        });
+    });
 }
