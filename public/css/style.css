@@ -44,7 +44,7 @@ hr{
     clear: both;
 }
 
-@keyframes fadeInFromLeft {
+@keyframes fadeInFromRight {
     0% {
       opacity: 0;
       transform: translate3d(100%, 0, 0);
@@ -60,12 +60,64 @@ hr{
     width: 502px;
     height: 302px;
     animation-duration: 1s;
-    animation-name: fadeInFromLeft;
+    animation-name: fadeInFromRight;
     background-image: url("./0_zP0AOTv7l4IZAi76.jpg");
     background-repeat: no-repeat;
     background-color: transparent;
     box-shadow: 0 8px 6px -6px black;
     overflow: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.hidden{
+    display: none;
+    position: absolute;
+    right: 2px;
+    bottom: 126px;
+}
+
+.kudo:hover .hidden{
+    display: block;
+}
+
+.deleteBtn{
+    width: 50px;
+    height: 50px;
+}
+
+.slideRight{
+	animation-name: slideRight;
+	animation-duration: 1s;	
+	animation-timing-function: ease-in-out;	
+	visibility: visible !important;	
+}
+
+@keyframes slideRight {
+	0% {
+        transform: translateX(-50%);
+        opacity: 1;
+	}
+	50%{
+        transform: translateX(8%);
+        opacity: .5;
+	}
+	65%{
+        transform: translateX(-4%);
+        opacity: .35;
+	}
+	80%{
+        transform: translateX(4%);
+        opacity: .2;
+	}
+	95%{
+        transform: translateX(-2%);
+        opacity: .05;
+	}			
+	100% {
+        transform: translateX(0%);
+        opacity: 0;
+	}	
 }
 
 .card-title{
@@ -73,7 +125,7 @@ hr{
 }
 
 p{
-    font-size: 40px;
+    font-size: 20px;
     box-sizing: border-box;
 }
 

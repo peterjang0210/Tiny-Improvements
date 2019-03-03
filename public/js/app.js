@@ -46,10 +46,24 @@ const renderKudos = function(kudos) {
                     <h3 class="text-muted receiver">To: ${kudos[i].receiver.name}</h3>
                     <p class="text-center">${kudos[i].message}</p>
                     <h3 class="text-muted sender">From: ${kudos[i].sender.name}</h3>
-                    
+                </div>
+                <div class="hidden">
+                    <button class="deleteBtn btn btn-danger" dataID="${kudos[i]._id}"><i class="fas fa-times"></i></button>
                 </div>
             </div>`);
     }
+}
+
+const deleteKudos = function(){
+    const kudoID = $(this).attr("dataID");
+    $(".kudo").addClass("slideRight");
+    $.ajax({
+        method:"DELETE",
+        url: "/api/kudos",
+        data: {_id: kudoID}
+    }).then(function(data){
+        setTimeout(function(){getKudos()}, 900);
+    })
 }
 
 renderUsers();
@@ -60,3 +74,4 @@ $("#showModal").on('click', function(){
     $(".alertDiv").empty();
     $(".modal").modal("show");
 });
+$(".kudos").on("click", ".deleteBtn", deleteKudos);
