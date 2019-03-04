@@ -23,13 +23,13 @@ module.exports = function (app){
     });
 
     // used to populate data to test
-    // app.post("/api/users", function(req,res){
-    //     User.create(req.body).then(function(user){
-    //         res.json(user);
-    //     }).catch(function(error){
-    //         res.json({error: error});
-    //     })
-    // })
+    app.post("/api/users", function(req,res){
+        User.create(req.body).then(function(user){
+            res.json(user);
+        }).catch(function(error){
+            res.json({error: error});
+        })
+    })
 
     app.post("/api/kudos", function(req, res){
         Kudo.create(req.body).then(function(kudos){
