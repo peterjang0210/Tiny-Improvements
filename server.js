@@ -19,7 +19,6 @@ mongoose.connect(
   }
 )
 
-
 //mongoose.connect('mongodb://localhost/tinyImprovements', { useNewUrlParser: true });
 
 require('./routes/html-routes')(app);
