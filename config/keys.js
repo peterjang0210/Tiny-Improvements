@@ -1,5 +1,1 @@
-if (process.env.NODE_ENV === 'production') {
-    module.exports = require('./keys_prod');
-  } else {
-    module.exports = require('./keys_dev.js');
-  }
+module.exports = "mongodb+srv://peterjang:funfunfun@cluster0-akaol.mongodb.net/test?retryWrites=true";
