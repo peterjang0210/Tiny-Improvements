@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const MONGODB_URI = require('./config/keys');
+// const MONGODB_URI = require('./config/keys');
 mongoose.Promise = global.Promise;
 
 
@@ -12,14 +12,17 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-mongoose.connect(
-  MONGODB_URI || "mongodb://localhost/tinyImprovements",
-  {
-    useMongoClient: true
-  }
-)
+// mongoose.connect(
+//   MONGODB_URI || "mongodb://localhost/tinyImprovements",
+//   {
+//     useMongoClient: true
+//   }
+// )
 
 //mongoose.connect('mongodb://localhost/tinyImprovements', { useNewUrlParser: true });
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/tinyImprovements"
+mongoose.connect(MONGODB_URI)
 
 require('./routes/html-routes')(app);
 require('./routes/api-routes')(app);
