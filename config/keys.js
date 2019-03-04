@@ -1,1 +1,0 @@
-module.exports = "mongodb+srv://peterjang:funfunfun@cluster0-akaol.mongodb.net/test?retryWrites=true";
